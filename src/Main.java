@@ -6,7 +6,6 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println("--- Barbearia Aberta ---");
-        System.out.println("Capacidade da fila: 10 cadeiras.");
 
         BlockingQueue<Integer> salaDeEspera = new ArrayBlockingQueue<>(10);
 
@@ -41,13 +40,13 @@ class Barbeiro implements Runnable {
                 System.out.println(nome + " está dormindo/esperando por clientes.");
                 Integer idCliente = salaDeEspera.take();
 
-                System.out.println("-> " + nome + " acordou e começou a atender o Cliente " + idCliente);
+                System.out.println("-> " + nome + " acordou e começou a atender o cliente " + idCliente);
 
                 // Simula o tempo de corte entre 5s e 15s
                 int tempoDeCorte = 5 + random.nextInt(11);
                 Thread.sleep(tempoDeCorte * 1000L);
 
-                System.out.println("<- " + nome + " terminou o Cliente " + idCliente + " em " + tempoDeCorte + " segundos.");
+                System.out.println("<- " + nome + " terminou o cliente " + idCliente + " em " + tempoDeCorte + " segundos.");
             }
         } catch (InterruptedException e) {
             System.out.println(nome + " encerrou o expediente.");
